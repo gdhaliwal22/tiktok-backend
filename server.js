@@ -20,7 +20,19 @@ mongoose.connect(connection_url, {
 });
 // api endpoints
 app.get("/", (req, res) => res.status(200).send("Hello Word"));
+
 app.get("/v1/posts", (req, res) => res.status(200).send(Data));
+
+app.post("/v2/posts", (req, res) => {
+  const dbVideos = req.body;
+  Videos.create(dbVideos, (err, data) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(201).send(data);
+    }
+  });
+});
 
 // listen
 app.listen(port, () => console.log(`listen on localhost: ${port}`));
