@@ -1,13 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
 import Data from "./data.js";
-import Videos from "./dbModel";
+import Videos from "./dbModel.js";
 
 // app config
 const app = express();
 const port = 9000;
 
 // middleware
+app.use(express.json());
 
 // DB config
 const connection_url =
