@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import Data from "./data.js";
+import Videos from "./dbModel";
 
 // app config
 const app = express();
